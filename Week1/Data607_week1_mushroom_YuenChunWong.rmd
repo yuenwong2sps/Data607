@@ -1,0 +1,127 @@
+---
+title: 'Mushroom Analysis '
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Overview
+
+Smell is very important for cooking, we are going to analyse this mushroom dataset with odor. https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data
+
+## Load Libararies
+```{r Load Libraries}
+library(devtools)
+library(RCurl)
+library(bitops)
+
+```
+
+##Load raw data and add labels to the data frame
+```{r Load Data}
+File_rawMushRoom <- getURL("https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data")
+Dataframe_rawMushRoom<-data.frame(read.csv(text=File_rawMushRoom, header=F))
+names(Dataframe_rawMushRoom) = c('is_edible','cap_shape',
+                                 'cap_surface',
+                                 'cap_color',
+                                 'IsBruises',
+                                 'odor',
+                                 'gill_attachment',
+                                 'gill_spacing',
+                                 'gill_size',
+                                 'gill_color',
+                                 'stalk_shape',
+                                 'stalk_root',
+                                 'stalk_surface_above_ring',
+                                 'stalk_surface_below_ring',
+                                 'stalk_color_above_ring',
+                                 'stalk_color_below_ring',
+                                 'veil_type',
+                                 'veil_color',
+                                 'ring_number',
+                                 'ring_type',
+                                 'spore_print_color',
+                                 'population',
+                                 'habitat')
+
+
+```
+
+## Aanlyse data
+
+
+What is the total count of the mushroom dataset (edible and poisonous)? Given 'e' = edible and 'p' = poisonous.
+
+```{r Get Total mushroom count}
+
+count_mushroom <- length(Dataframe_rawMushRoom$is_edible)
+
+```
+
+How does the edible mushroom smell like?  How many are they?
+```{r edible mushroom}
+edible_mushroom <- subset(Dataframe_rawMushRoom, Dataframe_rawMushRoom$is_edible == 'e')
+
+odor_edible_mushroom <- table(edible_mushroom$odor)
+
+count_edible_mushroom <- length(edible_mushroom$odor)
+
+```
+
+How does the poisonous mushroom smell like? How many are they?
+
+```{r poisonous mushroom}
+poisonous_mushroom <- subset(Dataframe_rawMushRoom, Dataframe_rawMushRoom$is_edible == 'p')
+
+odor_poisonous_mushroom <- table(poisonous_mushroom$odor)
+
+count_poisonous_mushroom <- length(poisonous_mushroom$odor)
+
+```
+
+Columns order are sorted in table, rename columns correspondingly
+
+```{r format table results}
+
+new_odor_labels = c('almond','creosote','foul','anise',
+                    'musty','none', 'pungent','fishy','spicy')
+
+names(odor_edible_mushroom ) = new_odor_labels
+names(odor_poisonous_mushroom ) = new_odor_labels
+
+
+```
+
+##Result
+
+Couts:
+```{r Total mushroom count}
+
+paste("Total Mushroom in our dataset:", as.character( count_mushroom))
+paste("Total edible:", as.character( count_edible_mushroom))
+paste("Total poison:", as.character(count_poisonous_mushroom))
+
+```
+
+Odor for edible mushrooms 
+```{r Output edible mushroom}
+print(odor_edible_mushroom)
+barplot(odor_edible_mushroom, main="Odor for Edible Mushrooms")
+```
+
+And odor for poison mushrooms
+```{r Output poison mushroom}
+print(odor_poisonous_mushroom)
+barplot(odor_poisonous_mushroom, main="Odor for Poisonous Mushrooms")
+```
+
+
+##Observation:
+
+1) the mushroom with almond or anise are edible
+2) the mushroom with creosote, foul, musty, pungent, spicy and fishy are poison
+3) the mushroom without odor mostly edible (3408)/(3408+120) = 96.6%
+4) it seems that mushroom with 'bad' smell mostly are poison.  Edbile mushroom is not only source of food and it could enhance the smell of the dish.
+
+
+
