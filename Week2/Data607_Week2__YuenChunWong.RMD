@@ -1,0 +1,58 @@
+---
+title: "Data 607 HW 2"
+author: "Yuen Chun Wong"
+date: "September 9, 2017"
+output: pdf_document
+---
+
+## Movie Rating
+
+Load library
+```{r load-package}
+
+library(RMySQL)
+
+
+```
+
+
+Connect to database. Replace your login instead of 'xxx' 
+```{r connect, echo=FALSE}
+
+mydb = dbConnect(MySQL(), user='root', password='xxx', dbname='xxx', host='localhost')
+
+```
+
+
+
+and query the data
+```{r load-db, echo=TRUE}
+rs <- dbGetQuery(mydb, "select ID, title, releaseDate, miniRate, review, imgurl from  movierating")
+```
+
+
+
+Print data in table with images.
+```{r listdata-begin}
+
+  
+  rs$imgurl <- sprintf("![](%s){width=100px}", rs$imgurl)
+
+  
+
+
+
+
+library(knitr  )
+
+kable(rs)
+
+  
+```
+
+
+Code Reference:
+https://stackoverflow.com/questions/25106481/add-an-image-to-a-table-like-output-in-r
+
+https://sebastiansauer.github.io/figure_sizing_knitr/
+
