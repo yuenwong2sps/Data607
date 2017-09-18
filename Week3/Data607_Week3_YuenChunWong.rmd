@@ -1,0 +1,126 @@
+---
+title: "Data 607 Week 3"
+author: "Yuen Chun Wong"
+date: "September 17, 2017"
+output: pdf_document
+---
+
+##Week 3
+
+
+
+Given a string 
+```{r load-data}
+
+library(stringr)
+
+raw.data <-"555-1239Moe Szyslak(636) 555-0113Burns, C. Montgomery555-6542Rev. Timothy Lovejoy555 8904Ned Flanders636-555-3226Simpson, Homer5553642Dr. Julius Hibbert"  
+
+print( raw.data )
+
+```
+
+3.1) rearrange the vector so that all element conform to the standard first_name lastname
+
+```{r ans1}
+raw.data.fullname <- unlist(str_extract_all(raw.data, "[[:alpha:][:space:].,]{2,}"))
+raw.data.fullname
+
+raw.data.lastname <- unlist(str_extract_all(raw.data.fullname, "[[:alpha:]]{2,},"))
+
+raw.data.lastname
+
+raw.data.lastname2 <- unlist(str_extract_all(str_extract_all(raw.data.fullname, "[^,][:alpha:][:space:][:alpha:]{2,}"),"[:space:][:alpha:]{2,}"))
+raw.data.lastname2
+
+
+raw.data.firstname <- unlist(str_extract_all(raw.data.fullname, "[,][.[:space:][:alpha:]]{2,}"))
+
+raw.data.firstname
+
+raw.data.firstname2 <- unlist(str_extract_all(raw.data.fullname, "[^,][:alpha:]{2,}[:space:]"))
+raw.data.firstname2
+
+raw.data.firstname3 <- c(raw.data.firstname, raw.data.firstname2)
+raw.data.lastname3 <- c(raw.data.lastname, raw.data.lastname2)
+
+#use str_replace_all()
+raw.data.firstname3 <- str_replace_all(raw.data.firstname3,",","")
+raw.data.lastname3 <- str_replace_all(raw.data.lastname3,",","")
+
+df <- data.frame(
+      firstname = raw.data.firstname3,
+      lastname = raw.data.lastname3
+                 )
+
+print(df)
+```
+
+
+3.2) Construct a logical vector indicating whether a character has a title (ie. Rev. And Dr)
+
+Try to construct regular expression to detect title which beginning with no space, contain a-z, A-Z and follow by "."
+```{r detect_title1}
+title_regex <- "[[:alpha:]]{2,}[.]"
+WithTitle <- unlist(str_extract_all(raw.data.fullname,title_regex))
+print(WithTitle)
+
+```
+
+Build a table to show the result
+```{r detect_title2}
+chk_title <- data.frame(
+        fullname <- unlist(raw.data.fullname),
+        HasTitle <- str_detect(raw.data.fullname, title_regex)
+        )
+
+print(chk_title)
+
+```
+
+
+
+3.3) Construct a logical vector indicating whether a character has a second name
+
+construct a logic to detech second name that has "space" in the name between "words"
+```{r detect_secondname1}
+secondname_regex <- "[[:alpha:].]{2,}[[:space:]][[:alpha:]]{2,}"
+WithsecondName <- unlist(str_extract_all(raw.data.firstname3,secondname_regex))
+print(WithsecondName)
+
+```
+
+Build a table to show the result
+```{r detect_secondname2}
+chk_secondname <- data.frame(
+        firstname <- unlist(raw.data.firstname3),
+        HasTitle <- str_detect(raw.data.firstname3, secondname_regex)
+        )
+
+print(chk_secondname)
+
+```
+
+
+
+4)Describe the types of strings that conform to the following regular expressions and
+construct an example that is matched by the regular expression.
+(1) [0-9]+\\$
+ Ans: match all numberic number, at least one digit, and then end of the line.  "[[:digit:]]+"
+
+(2) \\b[a-z]{1,4}\\b
+  Ans: with word bounds at the begining and the end of the word, word with lower case alphabetic, at least one characters, max 4 characters.
+  "\\b[[:lower:]]{1,4}\\b"
+  
+(3) .*?\\.txt$
+  Ans: match anything from zero to many times follow by ".txt"
+   "[[:alnum:]]*.txt"
+
+(4) \\d{2}/\\d{2}/\\d{4}
+   
+  Ans: It is the date format   mm/dd/yyyy format.  
+  "[[:digit:]]{2}/[[:digit:]]{2}/[[:digit:]]{4}""
+
+(5) <(.+?)>.+?</\\1>
+  Ans:  <match anyting>match anyting</first match reference>
+  "<[[:alnum:]]{1,}>[[:alnum:]]{1,}</\\1>"
