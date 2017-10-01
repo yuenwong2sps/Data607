@@ -1,0 +1,78 @@
+---
+title: "Data607 Week 5"
+author: "Yuen Chun Wong"
+date: "October 1, 2017"
+output: html_document
+---
+
+## Tidying and Transforming Data
+
+
+
+Load libraries
+```{r load-library}
+library(tidyr)
+library(dplyr)
+```
+
+Load Data
+```{r load-data}
+fightstatus <- tbl_df(read.csv("sampleFlightData.csv", stringsAsFactors = FALSE, check.names = FALSE))
+#all flight status
+print(fightstatus)
+```
+
+Tidy the data per airline
+```{r tidy-data}
+#all arrival status for Alaska
+fightstatus.ALASKA <- fightstatus %>%
+        filter(Flight == "Alaska") %>%
+        gather(Destination, Arrival, 3:7)
+
+print(fightstatus.ALASKA)
+
+#all arrival status for AM WEST
+fightstatus.AMWEST <- fightstatus %>%
+  filter(Flight == "AM WEST") %>%
+  gather(Destination, Arrival, 3:7)
+
+print(fightstatus.AMWEST)
+
+#spread the status column
+fightstatus.ALASKA <- fightstatus.ALASKA %>%
+  spread(Status, Arrival)
+
+```
+
+
+Transform the data and calculate the delay percentage
+```{r transform-calculate}
+#calculate and add the delay percentage
+fightstatus.ALASKA <- fightstatus.ALASKA %>%
+  mutate(
+    Arrival_Total = fightstatus.ALASKA$Delayed + fightstatus.ALASKA$`On Time`, 
+    Delay_Pct = fightstatus.ALASKA$Delayed /  Arrival_Total     
+  )
+
+#spread the status column
+fightstatus.AMWEST <- fightstatus.AMWEST %>%
+  spread(Status, Arrival)
+
+#calculate and add the delay percentage
+fightstatus.AMWEST <- fightstatus.AMWEST %>%
+  mutate(
+    Arrival_Total = fightstatus.AMWEST$Delayed + fightstatus.AMWEST$`On Time`, 
+    Delay_Pct = fightstatus.AMWEST$Delayed /  Arrival_Total     
+  )
+
+
+
+```
+
+Print Delay Pct
+```{r print-data}
+print(fightstatus.ALASKA)
+
+print(fightstatus.AMWEST)
+
+```
