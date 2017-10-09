@@ -1,0 +1,186 @@
+---
+title: "Data 607 Week 6 -Project 2"
+author: "Yuen Chun Wong"
+date: "October 8, 2017"
+output: html_document
+---
+
+## Tidying and Transforming Data
+
+Load libraries
+```{r load-library}
+library(tidyr)
+library(dplyr)
+```
+
+
+
+## #1 NYC Foreclosure Data - Sedo Oh
+Source: Table 1 (in the pdf file) http://furmancenter.org/files/sotc/SOC_2016_Full.pdf
+
+Analysis: draw tread line of the foreclosure
+
+Load Data - NYC Foreclosure
+```{r load-data-NYCForeclosure}
+NYCForeclosure <- tbl_df(read.csv("foreclosure.csv", stringsAsFactors = FALSE, check.names = FALSE))
+#Boro Summary
+print(NYCForeclosure)
+```
+
+
+Tidy the Foreclosure data 
+```{r tidy-data-NYCForeclosure}
+#get boro
+
+boroType <- NYCForeclosure$Boro
+
+#tidy data
+NYCForeclosure.ByYear <- NYCForeclosure %>%
+        gather(Yr, ForeclosureCount, 2:7)
+
+print(NYCForeclosure.ByYear)
+
+
+
+
+
+```
+
+Modifed from http://www.statmethods.net/graphs/line.html
+```{r draw-trend-nycforeclosure}
+#get the range for x,y
+xrange = range(NYCForeclosure.ByYear$Yr)
+yrange = range(NYCForeclosure.ByYear$ForeclosureCount)
+
+#setup plot
+
+plot(xrange, yrange, type="n", xlab="Year",
+  	ylab="Foreclosure Count" ) 
+colors <- rainbow(length(boroType)) 
+linetype <- c(1:length(boroType)) 
+plotchar <- seq(18,18+length(boroType),1)
+
+# add lines 
+for (i in 1:length(boroType)) { 
+  boroforeclosure <- subset(NYCForeclosure.ByYear, NYCForeclosure.ByYear$Boro==boroType[i]) 
+  lines(boroforeclosure$Yr, boroforeclosure$ForeclosureCount, type="b", lwd=1.5,
+    lty=linetype[i], col=colors[i], pch=plotchar[i]) 
+} 
+
+# add a title and subtitle 
+title("NYC Foreclosure", "")
+
+# add a legend 
+legend( "topright", boroType, cex=0.8, col=colors,
+  	pch=plotchar, lty=linetype, title="Boro")
+
+```
+As we can see above, NYC foreclosure rate gradually decreased but it slightly picked up again from 2015 to 2016.
+
+
+## #2 Oil supply and demand, price - Silverio Vasquez - EIA Short-term Energy Outlook
+Tidy data can be used to downstream analysis.
+I saved the data in the csv format and add grouping for easy calcuation before tidying
+
+```{r load-data-oil_suppoly_demand_price}
+EIA_OilSupply <- tbl_df(read.csv("EIA_OilSupply.csv", stringsAsFactors = FALSE, check.names = FALSE))
+EIA_OilConsumption <- tbl_df(read.csv("EIA_OilConsumption.csv", stringsAsFactors = FALSE, check.names = FALSE))
+EIA_OilPrice <- tbl_df(read.csv("EIA_OilPrice.csv", stringsAsFactors = FALSE, check.names = FALSE))
+
+#all oil data
+print(EIA_OilSupply)
+print(EIA_OilConsumption)
+print(EIA_OilPrice)
+
+```
+
+
+Tidy the Oil data 
+```{r tidy-data-Oil-Data}
+
+
+#tidy data
+EIA_OilSupply.ByMonth <- EIA_OilSupply %>%
+        gather(Month, MilBarrels, 4:75)
+
+EIA_OilConsumption.ByMonth <- EIA_OilConsumption %>%
+        gather(Month, MilBarrels, 4:75)
+
+EIA_OilPrice.ByMonth <- EIA_OilPrice %>%
+        gather(DT, PerBarrel, 4:75)
+
+
+head(EIA_OilSupply.ByMonth)
+head(EIA_OilConsumption.ByMonth)
+head(EIA_OilPrice.ByMonth)
+
+
+```
+
+Data above can be merged and summarized.
+E.g. US import/consumption vs import avg price.
+```{r merged-summarize}
+tmp_month <- names(EIA_OilSupply)
+Months <- tmp_month[4:75]
+
+US_oil.supply <- EIA_OilSupply.ByMonth %>% filter(DESC == "U.S. (50 States)")
+US_oil.Consume_50_States <- EIA_OilConsumption.ByMonth %>% filter(DESC == "U.S. (50 States)")
+US_oil.Consume_US_Territories <- EIA_OilConsumption.ByMonth %>% filter(DESC == "U.S. Territories")
+US_oil.import <- EIA_OilPrice.ByMonth %>% filter(CODE == "RAIMUUS")
+
+US_oil <- data.frame(
+  Record_Months <- Months,
+  Supply <- US_oil.supply$MilBarrels,
+  Consume <- US_oil.Consume_50_States$MilBarrels + US_oil.Consume_US_Territories$MilBarrels,
+  ImportAvgPrice <- US_oil.import$PerBarrel 
+  
+)
+
+print(US_oil)
+
+
+```
+
+
+
+
+## #3 NYPD Motor Vehicle Collisions - Yuen Chun Wong
+http://www1.nyc.gov/site/nypd/stats/traffic-data/traffic-data-collision.page
+It is Aug 2017 data.
+I saved the data in csv format and merge the column for location.
+
+```{r load-data-NYPD-Collision}
+NYPDCollision <- tbl_df(read.csv("NYPDAug2017_Motor_Vehicle_Collisions.csv", stringsAsFactors = FALSE, check.names = FALSE))
+#snapshot of data
+head(NYPDCollision)
+```
+
+
+```{r tidy-data-NYPD-collision}
+
+NYPDCollision.ByInjuryType <- NYPDCollision %>% gather(InJury_type, Freq, 4:15)
+
+
+```
+
+
+Analysis: Min & Max by Injury Type 
+modified from
+https://stackoverflow.com/questions/31284794/how-do-i-use-group-by-with-order-function-in-r
+https://stackoverflow.com/questions/31528981/select-first-and-last-row-from-grouped-data
+
+```{r max-Injury}
+NYPDCollision.ByInjuryType_Max <- NYPDCollision.ByInjuryType %>% group_by(InJury_type) %>% arrange(-Freq) %>%
+  filter(row_number()==1)
+
+NYPDCollision.ByInjuryType_Min <- NYPDCollision.ByInjuryType %>% group_by(InJury_type) %>% arrange(Freq) %>%
+  filter(row_number()==1)
+
+(NYPDCollision.ByInjuryType_Max)
+(NYPDCollision.ByInjuryType_Min)
+```
+As data above, We can conclude:
+1. Queens 109th Precinct has highest collison rate while Manhattan Central Park Precinct has lowerest collison rate.  
+2. More Traffic police and road design may be required in Queens 109th Precinct.
+3. Few vehicles are Manhattan Central Park Precinct area.
+
