@@ -1,0 +1,22 @@
+{
+	"books":[
+			{
+				"title":"Empires of the Sea: The Siege of Malta, the Battle of Lepanto, and the Contest for the Center of the World",
+				"author":["Roger Crowley"],
+				"subject": ["History","Religion"] ,
+				"rating":4.5
+ 			},
+			{	
+				"title":"Freakonomics: A Rogue Economist Explores the Hidden Side of Everything",
+				"author":["Stephen J. Dubner","Steven D. Levitt"],
+				"subject":["Economics","Personal Fiance"],
+				"rating":4.5
+			},	
+			{
+				"title":"The Art of Flavor: Practices and Principles for Creating Delicious Food",
+				"author":["Daniel Patterson","Mandy Aftel"],
+				"subject":["Cookbooks"],
+				"rating":4.5 
+			}
+		]
+}

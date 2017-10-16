@@ -1,0 +1,166 @@
+---
+title: "Data607_Week7_YuenChunWong"
+author: "Yuen Chun Wong"
+date: "October 14, 2017"
+output: html_document
+
+---
+
+
+
+## Read HTML, XML, and JSON file
+
+Preparation:  
+sample raw html, xml, json are loaded to Github.  However, files on github can not be downloaded directly because all the file reference are actually the "viewer" mode of the file, it will takes a lot of time to extract the data from the github viewer html code before disgesting the raw file. therefore, I upload all files to a webserver for this homework assigment.  Azere is Microsoft web hosting service.
+
+```{r load-libraries }
+library("httr")
+library("XML")
+library(methods)
+```
+
+
+HTML FILE : http://data607.azurewebsites.net/data/books.html
+
+```{r read-html}
+
+
+# Define certicificate file
+cafile <- system.file("CurlSSL", "cacert.pem", package = "RCurl")
+
+# Read page
+page <- GET(
+  "data607.azurewebsites.net/data/books.html", 
+  config(cainfo = cafile)
+)
+
+
+x <- content(page, as='text')
+
+
+```
+
+```{r show-html-example}
+
+
+xmlfile <- xmlParse(x)
+
+# Exract the root node form the xml file.
+rootnode <- xmlRoot(xmlfile)
+```
+
+For html file, not everything tag can be converted to xml.  For example, \<li\> tag not be converted due to duplication.  You ususally have more than one \<li\> for in each \<ul\> tag. 
+```{r show-html-example-section}
+# Print the result.
+
+df <- xmlToDataFrame(   rootnode[[1]]) 
+
+names(df)
+
+nrow(df)
+```
+
+For specific element, such as second book Title in \<h3\> tag and book attribute in \<ul\> tag.  More data extraction is required to work with HTML
+```{r show-html-example-section2}
+
+df[2,1]
+
+df[2,2]
+```
+
+
+XML file: http://data607.azurewebsites.net/data/books.xml
+
+
+```{r load-xml-file}
+
+# Read page
+page2 <- GET(
+  "data607.azurewebsites.net/data/books.xml", 
+  config(cainfo = cafile)
+)
+
+# 
+x2 <- content(page2, as='text')
+
+```
+
+For xml document, it is more eaiser to convert and tags are converted to columns
+```{r convert-xml}
+df2 <- xmlToDataFrame(x2)
+
+names(df2)
+
+nrow(df2)
+
+```
+
+for title and each element, we can just call it directly like usually dataframe syntax ***BUT*** if there is more than one value in each column such as authors, values may be merged together.
+```{r show-example-xml}
+print(df2[2,]$title)
+
+print(df2[2,]$author)
+
+print(df2[2,]$subject)
+
+print(df2[2,]$rating)
+
+
+
+```
+
+
+JSON file: http://data607.azurewebsites.net/data/books.json
+
+```{r load-json}
+
+library(rjson)
+
+# Read page
+page3 <- GET(
+  "data607.azurewebsites.net/data/books.json", 
+  config(cainfo = cafile)
+)
+
+# 
+x3 <- content(page3, as='text')
+```
+
+
+```{r convert-json-dataframe}
+x3_json <- fromJSON(x3)
+df3 <- as.data.frame(x3_json)
+
+```
+
+
+with rjson, each spreads each elements to columns and if there are more than one value in each column, it will automatically creaet a row.  But we need to be careful because json file could be a TREE structure and data frame is like a table structure.  
+```{r show-json-dataframe-structure}
+names(df3)
+
+nrow(df3)
+```
+
+
+
+
+With rjson library, file are converted, but the format of the data frame is not expaneded.  For every attribution that has more than one value such as author, this library will duplicate all other columns.
+```{r show-json-dataframe-sample}
+
+df3$books.title.1
+
+df3$books.author.1
+
+df3$books.subject.1
+
+df3$books.rating.1
+
+
+
+```
+
+
+Summary:
+It seems that all 3 formats have weakness when it comes to tree structure data and format it to data frame. More data extraction is required.  Or we may need to use different libraries or use different data structure to store the data.
+
+

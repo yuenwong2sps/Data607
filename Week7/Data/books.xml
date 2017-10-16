@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+<book>
+	<title>Empires of the Sea: The Siege of Malta, the Battle of Lepanto, and the Contest for the Center of the World</title>
+	
+	<author>
+		<value>Roger Crowley</value>
+	</author>
+	<subject>
+		<value>History</value>
+		<value>Religion</value>
+	</subject>
+	
+	<rating>4.5</rating>
+ 	
+</book>
+<book>
+	<title>Freakonomics: A Rogue Economist Explores the Hidden Side of Everything</title>
+	<author>
+		<value>Stephen J. Dubner</value>
+		<value>Steven D. Levitt</value>
+	</author>
+	<subject>
+		<value>Economics</value>
+		<value>Personal Fiance</value>
+	</subject>
+	<rating>4.5</rating>
+</book>	
+<book>
+	<title>The Art of Flavor: Practices and Principles for Creating Delicious Food</title>
+	<author>
+		<value>Daniel Patterson</value>
+		<value>Mandy Aftel</value>
+	</author>
+	<subject>
+		<value>Cookbooks</value>
+	</subject>
+	<rating>4.5</rating>
+	
+</book>
+</books>
