@@ -1,0 +1,92 @@
+---
+title: "Data607 Project 3"
+author: "Yuen Chun Wong"
+date: "October 22, 2017"
+output: html_document
+---
+
+
+## Project 3 - Most Wanted skills in Finance and Insurance?
+
+```{r load-library}
+
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+
+```
+
+
+```{r load-and-prepare-data , warning=FALSE, message=FALSE}
+
+
+#Clean job data for project 3 across industries
+JobData <- tbl_df(read.csv("Project3_CleanData.csv", stringsAsFactors = FALSE, check.names = FALSE))
+
+
+```
+
+Which skill sets are the most freqents in terms of keywords?
+```{r analyse-data}
+
+FinanceAndInsurData_SkillSetCount <- JobData %>%
+  filter(Industry == "Finance") %>%
+  count(`Skill Set`, sort= TRUE)
+
+# count() is a short-hand for group_by() + tally()
+
+(FinanceAndInsurData_SkillSetCount)
+
+```
+
+
+As we can see above, Programming/Technical and soft skills are most important while business related keywords are much less frequent.  It may imply that data scientist job in Financial / Insurance job, business knowledge is not the major focus.
+
+sO, WHICH Skill Type are most variable in Programming/Technical and Soft Skills? 
+```{r analyssi-data2}
+
+FinanceAndInsurData_Programming_tech <- JobData %>%
+  filter(Industry == "Finance" & `Skill Set` == "Programming/Technical") %>%
+  count(`Skill Type`, sort=TRUE)
+
+
+    
+(FinanceAndInsurData_Programming_tech)
+
+
+```
+
+##For programming and technical skills
+Python, Java, R, Hadoop are must have. Some skills such as machine learning and cloud technlogy are important too but it could be platform specific (e.g. Google Machine learning)
+
+
+```{r analysis-data-softskills}
+
+FinanceAndInsurData_SoftSkills <- JobData %>%
+  filter(Industry == "Finance" & `Skill Set` == "Soft Skill") %>%
+  count(`Skill Type`, sort=TRUE)
+
+(FinanceAndInsurData_SoftSkills)
+
+
+```
+
+##For softskills
+Communication and collaboration are the most important while personality such as Friendly, Positive, Curiosity, Detail are also considered.
+
+```{r draw-softskill}
+
+ggplot(FinanceAndInsurData_SoftSkills, aes(x = FinanceAndInsurData_SoftSkills$`Skill Type`, y = FinanceAndInsurData_SoftSkills$n, fill = FinanceAndInsurData_SoftSkills$n)) + 
+  geom_bar(stat = "identity") +
+  xlab("Skills") + 
+  ylab("Freq.") + 
+  theme(legend.position = "none",  
+        axis.text.x = element_text(angle = 65, hjust = 1)) +
+  ggtitle("Soft Skills of Data Scientist in Finance/Insurance")  
+  
+```
+
+
+##Conclusion
+So for Finance industry, hard skills such as Python, Java, R, Hadoop are must Have. Be able to communicate and work together are most important soft skills.
+

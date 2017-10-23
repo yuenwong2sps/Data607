@@ -1,0 +1,591 @@
+Industry,Skill Set,Skill Type
+Marketing,Soft Skill,Team Player
+Marketing,Programming/Technical,Database Management
+Marketing,Programming/Technical,Java
+Marketing,Programming/Technical,SPSS
+Marketing,Programming/Technical,SAS
+Marketing,Programming/Technical,STATA
+Marketing,Programming/Technical,C++
+Marketing,Programming/Technical,R
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Soft Skill,Good Communication
+Marketing,Programming/Technical,Build Machine Learning Models
+Marketing,Mathematics,Build Statisical Learning Models
+Marketing,Programming/Technical,Attribution Modeling
+Marketing,Programming/Technical,Build Machine Learning Models
+Marketing,Mathematics,Build Statisical Learning Models
+Marketing,Soft Skill,Problem Solving Skills
+Marketing,Soft Skill,Good Communication
+Marketing,Programming/Technical,Build Machine Learning Models
+Marketing,Soft Skill,Team Player
+Marketing,Mathematics,Build Statisical Learning Models
+Marketing,Programming/Technical,Build Quantitative Models
+Marketing,Programming/Technical,Database Management
+Marketing,Soft Skill,Good Communication
+Marketing,Programming/Technical,R
+Marketing,Programming/Technical,R
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Programming/Technical,Build Quantitative Models
+Marketing,Programming/Technical,SAS
+Marketing,Soft Skill,Motivated
+Marketing,Programming/Technical,SQL
+Marketing,Mathematics,Mathematics
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Programming/Technical,Hadoop
+Marketing,Business,Designing Experiments
+Marketing,Mathematics,MATLAB
+Marketing,Programming/Technical,Python
+Marketing,Programming/Technical,SQL
+Marketing,Programming/Technical,SPSS
+Marketing,Soft Skill,Highly Analytical
+Marketing,Programming/Technical,Tableau
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Programming/Technical,Python
+Marketing,Programming/Technical,Build Statisical Learning Models
+Marketing,Programming/Technical,Pandas
+Marketing,Programming/Technical,SAS
+Marketing,Programming/Technical,MongoDB
+Marketing,Programming/Technical,R
+Marketing,Programming/Technical,SQL
+Marketing,Programming/Technical,SQL
+Marketing,Programming/Technical,Build Statisical Learning Models
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Programming/Technical,SQL
+Marketing,Programming/Technical,Hive
+Marketing,Programming/Technical,SQL
+Marketing,Soft Skill,Good Communication
+Marketing,Programming/Technical,SAS
+Marketing,Programming/Technical,MongoDB
+Marketing,Programming/Technical,SQL
+Marketing,Programming/Technical,Hadoop
+Marketing,Mathematics,Applied Math
+Marketing,Programming/Technical,Python
+Marketing,Programming/Technical,Tableau
+Marketing,Programming/Technical,Python
+Marketing,Business,Develop KPIs
+Marketing,Programming/Technical,R 
+Marketing,Programming/Technical,Hadoop
+Marketing,Programming/Technical,Hadoop
+Marketing,Programming/Technical,Spark
+Marketing,Business,Project Management
+Marketing,Mathematics,Statisical Learning Models
+Marketing,Programming/Technical,Machine Learning Models
+Marketing,Programming/Technical,Power BI
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Business,Marketing Optimization
+Marketing,Programming/Technical,Python
+Marketing,Programming/Technical,Tableau
+Marketing,Programming/Technical,Hive
+Marketing,Programming/Technical,Hive
+Marketing,Programming/Technical,Build Quantitative Models
+Marketing,Programming/Technical,Python
+Marketing,Programming/Technical,Build Statisical Learning Models
+Marketing,Soft Skill,Highly Analytical
+Marketing,Business,A/B Testing
+Marketing,Programming/Technical,Spark
+Marketing,Programming/Technical,Python
+Marketing,Programming/Technical,Machine Learning models
+Marketing,Programming/Technical,Perl 
+Marketing,Business,A/B Testing
+Marketing,Programming/Technical,Tableau
+Marketing,Programming/Technical,Multivariate Testing
+Marketing,Soft Skill,Good Communication
+Marketing,Programming/Technical,R
+Marketing,Programming/Technical,R
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Programming/Technical,Predictive Anaytics
+Marketing,Soft Skill,Strong People Skills
+Marketing,Soft Skill,Good Communication
+Marketing,Programming/Technical,SQL
+Marketing,Business,Marketing Optimization
+Marketing,Soft Skill,Team Player
+Marketing,Soft Skill,Well Organized
+Marketing,Programming/Technical,Tableau
+Marketing,Soft Skill,Multitasking
+Marketing,Business,MS Office
+Marketing,Soft Skill,Team Player
+Marketing,Analysis/Research,Web Analytics
+Marketing,Soft Skill,Attention To Detail
+Marketing,Soft Skill,Enthusiasm
+Marketing,Business,Project Management
+Education,Programming/Technical,SAS
+Education,Programming/Technical,SAS
+Education,Programming/Technical,SAS
+Education,Programming/Technical,SQL
+Education,Programming/Technical,SPSS
+Education,Programming/Technical,Power BI
+Education,Programming/Technical,SQL
+Education,Programming/Technical,R
+Education,Programming/Technical,STATA
+Education,Business,Business Intelligence
+Education,Programming/Technical,SQL
+Education,Programming/Technical,Tableau
+Education,Programming/Technical,TABULATE
+Education,Programming/Technical,SPSS
+Education,Programming/Technical,R
+Education,Programming/Technical,JavaScript
+Education,Programming/Technical,SQL
+Education,Programming/Technical,Python
+Education,Programming/Technical,C
+Education,Programming/Technical,C++
+Education,Business,MS Office
+Education,Programming/Technical,ASP
+Education,Programming/Technical,Java
+Education,Business,Business Analysis
+Healthcare,Business,Healthcare Analytics
+Healthcare,Programming/Technical,Git
+Healthcare,Programming/Technical,Problem Solving Skills
+Healthcare,Business,Management
+Healthcare,Programming/Technical,Database Management
+Healthcare,Business,Hospital or managed care environment
+Healthcare,Programming/Technical,Big Data
+Healthcare,Programming/Technical,Data Mining 
+Healthcare,Programming/Technical,Python
+Healthcare,Programming/Technical,Building Machine Learning Model
+Healthcare,Programming/Technical,R
+Healthcare,Programming/Technical,Predictive Anaytics
+Healthcare,Programming/Technical,Python
+Healthcare,Programming/Technical,SQL
+Healthcare,Analysis/Research,Visualization
+Healthcare,Soft Skill ,Written communication and oral presentation skills
+Healthcare,Soft Skill,Relationship and organizational skills
+Healthcare,Soft Skill,Attention to detail 
+Healthcare,Soft Skill,Ability to think creatively and strategically
+Healthcare,Programming/Technical,Command line scripting
+Healthcare,Programming/Technical,R
+Healthcare,Programming/Technical,SAS
+Healthcare,Mathematics,Statistics
+Healthcare,Programming/Technical,Python
+Healthcare,Programming/Technical,Build Machine Learning Models
+Healthcare,Programming/Technical,Java
+Healthcare,Mathematics,Mathlab
+Healthcare,Programming/Technical,C++
+Healthcare,Programming/Technical,C
+Healthcare,Programming/Technical,R
+Healthcare,Programming/Technical,Java
+Healthcare,Programming/Technical,C++
+Cyber Secuirty,Programming/Technical,Python
+Cyber Secuirty,Programming/Technical,R
+Cyber Secuirty,Programming/Technical,SQL
+Cyber Secuirty,Programming/Technical,SPARKML
+Cyber Secuirty,Programming/Technical,sckit
+Cyber Secuirty,Programming/Technical,caret
+Cyber Secuirty,Business,mlr
+Cyber Secuirty,Programming/Technical,mlib
+Cyber Secuirty,Programming/Technical,Data Mining 
+Cyber Secuirty,Soft Skill,Problem Solving Skills
+Cyber Secuirty,Business,Automating IT tasks
+Cyber Secuirty,Programming/Technical,Anti-DDOS
+Cyber Secuirty,Programming/Technical,SIEM
+Cyber Secuirty,Programming/Technical,AWS
+Cyber Secuirty,Programming/Technical,Postgres
+Cyber Secuirty,Programming/Technical,D3
+Cyber Secuirty,Programming/Technical,Scala
+Cyber Secuirty,Soft Skill,Good Communication
+Cyber Secuirty,Business,Management
+Cyber Secuirty,Programming/Technical,Java
+Cyber Secuirty,Soft Skill,Team Player
+Cyber Secuirty,Mathematics,Mathlab
+Cyber Secuirty,Programming/Technical,Pandas
+Cyber Secuirty,Programming/Technical,Scipy
+Cyber Secuirty,Soft Skill,Motivated
+Cyber Secuirty,Programming/Technical,Build Machine Learning Models
+Cyber Secuirty,Programming/Technical,Cyrptography
+Cyber Secuirty,Programming/Technical,Powershell
+Cyber Secuirty,Programming/Technical,Scikit
+Cyber Secuirty,Analysis/Research,ETL Techniques
+Cyber Secuirty,Soft Skill,Meeting deadlines
+Cyber Secuirty,Soft Skill,Good communication
+Cyber Secuirty,Programming/Technical,Attention to Detail
+Cyber Secuirty,Programming/Technical,SQL
+Cyber Secuirty,Programming/Technical,Python
+Cyber Secuirty,Business,Reporting
+Cyber Secuirty,Programming/Technical,Software Development
+Cyber Secuirty,Analysis/Research,Statistical Analysis
+Cyber Secuirty,Soft Skill,consulting
+Cyber Secuirty,Business,Understanding of cloud computing concepts
+Cyber Secuirty,Business,Information Assurance Concepts
+Cyber Secuirty,Business,Knowledge of Federal Security regulations
+Cyber Secuirty,Programming/Technical,Apache Kafka
+Cyber Secuirty,Programming/Technical,StealthWatch
+Cyber Secuirty,Programming/Technical,Splunk
+Cyber Secuirty,Programming/Technical,ELK
+Cyber Secuirty,Programming/Technical,Suricata
+Cyber Secuirty,Programming/Technical,Packet processing
+Cyber Secuirty,Programming/Technical,Docker
+Cyber Secuirty,Programming/Technical,Apache Jena
+Cyber Secuirty,Programming/Technical,Apache Mesos
+Cyber Secuirty,Programming/Technical,Python
+Cyber Secuirty,Programming/Technical,R
+Cyber Secuirty,Programming/Technical,Ruby
+Cyber Secuirty,Programming/Technical,ETL
+Cyber Secuirty,Business,Developing data models
+Cyber Secuirty,Analysis/Research,Data Analysis
+Cyber Secuirty,Soft Skill,Cyber Threat Knowledge
+Cyber Secuirty,Soft Skill,Global Politics
+Cyber Secuirty,Business,SPSS
+Cyber Secuirty,Soft Skill,Problem Solving Skills
+Cyber Secuirty,Programming/Technical,Computer Programming
+Cyber Secuirty,Soft Skill,Meeting deadlines
+Cyber Secuirty,Programming/Technical,C
+Cyber Secuirty,Programming/Technical,C++
+Cyber Secuirty,Programming/Technical,Software Development
+Cyber Secuirty,Programming/Technical,Perl
+Cyber Secuirty,Programming/Technical,Ruby
+Cyber Secuirty,Programming/Technical,Python
+Cyber Secuirty,Soft Skill,Network Protocals
+Cyber Secuirty,Soft Skill,Problem Solving Skills
+Cyber Secuirty,Soft Skill,Good communication
+Cyber Secuirty,Soft Skill,Team player
+Cyber Secuirty,Soft Skill,Good organziation
+Cyber Secuirty,Business,Network Protocals
+Finance,Programming/Technical,Security Mechanisms
+Finance,Programming/Technical,Crypographic algorithims
+Finance,Programming/Technical,Malware reverse engineering
+Finance,Analysis/Research,Structure and Unstructured Data
+Finance,Analysis/Research,Visualization
+Finance,Programming/Technical,Data Mining 
+Finance,Programming/Technical,Python
+Finance,Programming/Technical,Pandas
+Finance,Programming/Technical,Numpy
+Finance,Programming/Technical,Java
+Finance,Programming/Technical,Mapforce
+Finance,Programming/Technical,Analytical Methods
+Finance,Programming/Technical,Database Management
+Finance,Analysis/Research,Data Cleansing
+Finance,Programming/Technical,JavaScript
+Finance,Soft Skill,Good Communication
+Finance,Programming/Technical,Database Modeling
+Finance,Programming/Technical,XML
+Finance,Mathematics,Statistics
+Finance,Programming/Technical,Data Mining 
+Finance,Programming/Technical,H20.ai
+Finance,Programming/Technical,Python
+Finance,Programming/Technical,Java
+Finance,Programming/Technical,Scala
+Finance,Programming/Technical,C++
+Finance,Programming/Technical,R
+Finance,Programming/Technical,SQL
+Finance,Business,Deadline Management
+Finance,Soft Skill,Work Independantly
+Finance,Programming/Technical,Google Machine Learning
+Finance,Programming/Technical,Build Machine Learning Models
+Finance,Programming/Technical,Develop Cloud Based Infastructure
+Finance,Business,Automating Complex Processes
+Finance,Business,Team Leadership
+Finance,Business,Writing Clearly and Succinctly
+Finance,Programming/Technical,HTML
+Finance,Analysis/Research,Visualization
+Finance,Business,Validate Analytic Procedures
+Finance,Business,Financial Industry Working Knowledge
+Finance,Business,Devlope APIs
+Finance,Analysis/Research,Web Analytics
+Finance,Programming/Technical,Solr
+Finance,Programming/Technical,OWL
+Finance,Programming/Technical,SPARQL
+Finance,Soft Skill,Good Work Ethic
+Finance,Soft Skill,Positive
+Finance,Soft Skill,Friendly
+Finance,Soft Skill,Attention To Detail
+Finance,Soft Skill,Deadline Management
+Finance,Soft Skill,Good Communication
+Finance,Programming/Technical,Git
+Finance,Programming/Technical,Spark ML
+Finance,Programming/Technical,Scikit
+Finance,Programming/Technical,H20.ai
+Finance,Programming/Technical,SQL
+Finance,Programming/Technical,Python
+Finance,Programming/Technical,R
+Finance,Programming/Technical,JavaScript
+Finance,Mathematics,Statistics
+Finance,Programming/Technical,Build Machine Learning Models
+Finance,Programming/Technical,Ignite
+Finance,Programming/Technical,Spark
+Finance,Programming/Technical,AWS
+Finance,Programming/Technical,Ansible
+Finance,Programming/Technical,Angular
+Finance,Programming/Technical,R
+Finance,Programming/Technical,Hadoop
+Finance,Programming/Technical,Java
+Finance,Programming/Technical,Scala
+Finance,Programming/Technical,C++
+Finance,Programming/Technical,Python
+Finance,Programming/Technical,R
+Finance,Programming/Technical,SQL
+Finance,Business,Marketing
+Finance,Soft Skill,Good Communication
+Finance,Programming/Technical,Natural Language Processing
+Finance,Business,Behaviroal Finance
+Finance,Mathematics,Statistics
+Finance,Programming/Technical,Building Machine Learning Model
+Finance,Programming/Technical,Hadoop
+Finance,Programming/Technical,Spark
+Finance,Programming/Technical,Tensorflow
+Finance,Programming/Technical,RDBMS
+Finance,Programming/Technical,Scala
+Finance,Programming/Technical,Java
+Finance,Programming/Technical,Python
+Finance,Programming/Technical,R
+Finance,Programming/Technical,Machine Learning models
+Finance,Business,Visualization
+Finance,Soft Skill,Collaboration
+Finance,Soft Skill,Agile
+Finance,Soft Skill,Quantitative
+Finance,Soft Skill,Good Communication
+Finance,Programming/Technical,Hadoop
+Finance,Programming/Technical,Stack
+Finance,Programming/Technical,NLP
+Finance,Programming/Technical,Python
+Finance,Soft Skill,Good Communication
+Finance,Programming/Technical,Database Management
+Finance,Soft Skill,Collaboration
+Finance,Soft Skill,Self-Starter
+Finance,Soft Skill,Curiosity
+Finance,Programming/Technical,Data Structures
+Finance,Programming/Technical,Pig
+Finance,Programming/Technical,Hive 
+Finance,Programming/Technical,Impala
+Finance,Programming/Technical,Hadoop
+Finance,Programming/Technical,Map/Reduce
+Finance,Programming/Technical,Command line scripting
+Finance,Programming/Technical,Linux
+Finance,Programming/Technical,DevOps Tools
+Finance,Programming/Technical,Python
+Finance,Programming/Technical,Java
+Finance,Programming/Technical,C
+Finance,Programming/Technical,C++
+Finance,Programming/Technical,Scala
+Finance,Programming/Technical,Bash
+Finance,Programming/Technical,RDF
+Finance,Programming/Technical,SPARQL
+Finance,Programming/Technical,Spark
+Finance,Programming/Technical,HDFS
+Finance,Programming/Technical,Hive 
+Finance,Business,Team Management
+Aviation,Programming/Technical,Java
+Aviation,Programming/Technical,Javascript
+Aviation,Programming/Technical,SQL
+Aviation,Programming/Technical,Agile
+Aviation,Business,Technology
+Aviation,Mathematics,Regression
+Aviation,Mathematics,Statistics
+Aviation,Programming/Technical,Objectoriented programming
+Aviation,Programming/Technical,Python
+Aviation,Business,Microsoft
+Aviation,Programming/Technical,SAS
+Aviation,Analysis/Research,Tableau
+Aviation,Business,Management
+Aviation,Soft Skill,Driven
+Aviation,Business,Planning
+Aviation,Business,Team Management
+Aviation,Business,Knowledge
+Aviation,Soft Skill,Good Communication
+Aviation,Soft Skill,Strategic
+Aviation,Soft Skill,Creative
+Aviation,Soft Skill,Leadership
+Aviation,Soft Skill,Team player
+Aviation,Business,Microsoft Office
+Aviation,Programming/Technical,Agile
+Aviation,Programming/Technical,Python
+Aviation,Programming/Technical,SAS
+Aviation,Programming/Technical,Simulation
+Aviation,Analysis/Research,Tableau
+Aviation,Soft Skill,Good Communication
+Aviation,Soft Skill,Interpersonal Skills
+Aviation,Soft Skill,Knowledge
+Aviation,Soft Skill,Focus
+Aviation,Soft Skill,Leadership
+Aviation,Soft Skill,Attention To Detail
+Aviation,Soft Skill,Self-Starter
+Pharmaceutical,Programming/Technical,SQL
+Pharmaceutical,Programming/Technical,NoSQL
+Pharmaceutical,Analysis/Research,Historians
+Pharmaceutical,Programming/Technical,Hadoop
+Pharmaceutical,Business,Technical Teaching
+Pharmaceutical,Business,Strong Presentation Skills
+Pharmaceutical,Soft Skill,Good Communication
+Pharmaceutical,Soft Skill,Interpersonal Skills
+Pharmaceutical,Business,Quality by Design Experience
+Pharmaceutical,Programming/Technical,Build Machine Learning Models
+Pharmaceutical,Business,Classifications
+Pharmaceutical,Programming/Technical,Build Statisical Learning Models
+Pharmaceutical,Mathematics,Regression
+Pharmaceutical,Programming/Technical,Spark
+Pharmaceutical,Programming/Technical,Python
+Pharmaceutical,Programming/Technical,R 
+Pharmaceutical,Programming/Technical,Scala
+Pharmaceutical,Programming/Technical,HTML
+Pharmaceutical,Programming/Technical,R
+Pharmaceutical,Programming/Technical,Java
+Pharmaceutical,Soft Skill,Good Communication
+Pharmaceutical,Programming/Technical,SQL
+Pharmaceutical,Programming/Technical,Programming Skills
+Pharmaceutical,Programming/Technical,Spotfire
+Pharmaceutical,Programming/Technical,Pipeline pilot
+Pharmaceutical,Soft Skill,Customer Service Skills
+Pharmaceutical,Soft Skill,Good Communication
+Pharmaceutical,Programming/Technical,R
+Pharmaceutical,Mathematics,MATHLAB
+Pharmaceutical,Programming/Technical,Python
+Pharmaceutical,Programming/Technical,Perl
+Pharmaceutical,Programming/Technical,Build Machine Learning Models
+Pharmaceutical,Soft Skill,Good Communication
+Pharmaceutical,Business,Strong Presentation Skills
+Pharmaceutical,Programming/Technical,R
+Pharmaceutical,Programming/Technical,JMP
+Pharmaceutical,Programming/Technical,Python
+Pharmaceutical,Programming/Technical,JSON
+Pharmaceutical,Programming/Technical,SQL
+Pharmaceutical,Programming/Technical,Qlik
+Pharmaceutical,Analysis/Research,Tableau
+Pharmaceutical,Programming/Technical,Spotfire
+Pharmaceutical,Soft Skill,Good Communication
+Pharmaceutical,Business,Writing Clearly
+Retail Trade,Programming/Technical,Machine learning 
+Retail Trade,Programming/Technical,Data mining
+Retail Trade,Programming/Technical,C++
+Retail Trade,Programming/Technical,Java
+Retail Trade,Programming/Technical,SQL
+Retail Trade,Programming/Technical,Python
+Retail Trade,Modeling,statistic modeling
+Retail Trade,Programming/Technical,R
+Retail Trade,Programming/Technical,Java
+Retail Trade,Programming/Technical,SQL
+Retail Trade,Programming/Technical,Big data
+Retail Trade,Programming/Technical,Hadoop
+Retail Trade,Programming/Technical,ParAccel
+Retail Trade,Programming/Technical,Cassandra
+Retail Trade,Programming/Technical,CPLEX
+Retail Trade,Programming/Technical,Machine learning
+Retail Trade,Programming/Technical,C++
+Retail Trade,Programming/Technical,R
+Retail Trade,Programming/Technical, Java
+Retail Trade,Programming/Technical,SQL
+Retail Trade,Programming/Technical,Scala
+Retail Trade,Programming/Technical,Python
+Retail Trade,Programming/Technical,Big data
+Retail Trade,Programming/Technical,Map/Reduce
+Retail Trade,Programming/Technical,Hadoop
+Retail Trade,Programming/Technical,Hive
+Retail Trade,Soft Skill,Communication
+Retail Trade,Soft Skill,Team work 
+Retail Trade,Soft Skill,Leadership
+Retail Trade,Programming/Technical,Digital media
+Retail Trade,Programming/Technical,Machine learning
+Retail Trade,Analysis/Research,Research
+Retail Trade,Modeling,Statistic modeling
+Retail Trade,Analysis/Research,Businese analytical 
+Retail Trade,Programming/Technical,R
+Retail Trade,Programming/Technical,Mathlab
+Retail Trade,Analysis/Research,Excel
+Retail Trade,Programming/Technical,SQL
+Retail Trade,Programming/Technical,Scala
+Retail Trade,Programming/Technical,Python
+Retail Trade,Programming/Technical,Pig
+Retail Trade,Programming/Technical,Mahout
+Retail Trade,Analysis/Research,Businese model analysis
+Retail Trade,Programming/Technical,Big data
+Retail Trade,Programming/Technical,Hadoop
+Retail Trade,Programming/Technical,Hive
+Retail Trade,Soft Skill,Communication
+Retail Trade,Programming/Technical,Spark
+Retail Trade,Programming/Technical,Google cloud
+Retail Trade,Programming/Technical,Git
+Retail Trade,Programming/Technical,PHP
+Retail Trade,Programming/Technical,Spotfire
+Retail Trade,Analysis/Research,Tableau
+Retail Trade,Soft Skill,communication
+Retail Trade,Programming/Technical,Hadoop
+Retail Trade,Programming/Technical,Map/Reduce
+Retail Trade,Programming/Technical,SAS
+Retail Trade,Programming/Technical,Perl
+Retail Trade,Programming/Technical,Hive
+Retail Trade,Programming/Technical,Python
+Retail Trade,Programming/Technical,SQL
+Retail Trade,Programming/Technical,Scala
+Retail Trade,Programming/Technical,STATA 
+Retail Trade,Programming/Technical,R
+Retail Trade,Modeling,Statistic modeling
+Retail Trade,Modeling,Statistic modeling
+Retail Trade,Analysis/Research,Businese analytical 
+Retail Trade,Programming/Technical,R
+Retail Trade,Programming/Technical,Python
+Retail Trade,Soft Skill,communication
+Information Technology,Analysis/Research,Data Analysis
+Information Technology,Soft Skill,communication 
+Information Technology,Modeling,Statistic modeling
+Information Technology,Soft Skill,teamwork
+Information Technology,Programming/Technical,Hadoop
+Information Technology,Programming/Technical,data mining
+Information Technology,Programming/Technical,big data
+Information Technology,Programming/Technical,spark
+Information Technology,Programming/Technical,web ananlysis
+Information Technology,Programming/Technical,C#
+Information Technology,Programming/Technical,JavaScript
+Information Technology,Programming/Technical,Perl
+Information Technology,Programming/Technical,HTML
+Information Technology,Soft Skill,Leadership
+Information Technology,Programming/Technical,DB
+Information Technology,Programming/Technical,ETL
+Information Technology,Programming/Technical,SQL
+Information Technology,Programming/Technical,R
+Information Technology,Programming/Technical,Hadoop
+Information Technology,Programming/Technical,machine learning
+Information Technology,Soft Skill,team work
+Information Technology,Soft Skill,written
+Information Technology,Soft Skill,communication
+Information Technology,Modeling,Statistic modeling
+Information Technology,Analysis/Research,Data Analysis
+Information Technology,Soft Skill,Leadership
+Information Technology,Soft Skill,team work
+Information Technology,Soft Skill,written
+Information Technology,Soft Skill,communication
+Information Technology,Modeling,Statistic modeling
+Information Technology,Analysis/Research,Data Analysis
+Information Technology,Programming/Technical,data  algorithms
+Information Technology,Programming/Technical,Deep learning
+Information Technology,Programming/Technical,Python
+Information Technology,Programming/Technical,Ruby
+Information Technology,Programming/Technical,Perl
+Information Technology,Programming/Technical,Python
+Information Technology,Programming/Technical,SQL
+Information Technology,Programming/Technical,Hadoop
+Information Technology,Programming/Technical,machine learning
+Information Technology,Programming/Technical,C++
+Information Technology,Programming/Technical,C++
+Information Technology,Programming/Technical,data mining
+Information Technology,Programming/Technical,feature engineering
+Information Technology,Programming/Technical,NLP
+Information Technology,Programming/Technical,computer vision
+Information Technology,Programming/Technical,debugg
+Information Technology,Programming/Technical,Python
+Information Technology,Programming/Technical,data mining
+Information Technology,Programming/Technical,SQL
+Information Technology,Programming/Technical,R
+Information Technology,Programming/Technical,C++
+Information Technology,Programming/Technical,C++
+Information Technology,Programming/Technical,Database
+Information Technology,Programming/Technical,SQL
+Information Technology,Programming/Technical,spark
+Information Technology,Programming/Technical,data mining
+Information Technology,Soft Skill,communication
+Information Technology,Modeling,Statistic modeling
+Information Technology,Programming/Technical,Data Analysis
+Information Technology,Programming/Technical,R
+Information Technology,Programming/Technical,Python
+Information Technology,Programming/Technical,data mining
+Information Technology,Programming/Technical,big data
+Information Technology,Modeling,Statistic modeling
+Information Technology,Programming/Technical,machine learning
+Information Technology,Soft Skill,communication
+Information Technology,Modeling,Statistic modeling
+Information Technology,Analysis/Research,Data Analysis
+Information Technology,Programming/Technical,big data
+Information Technology,Programming/Technical,machine learning
+Information Technology,Programming/Technical,Python
+Information Technology,Programming/Technical,SQL
+Information Technology,Programming/Technical,data mining
+Information Technology,Analysis/Research,Data Analysis
+Information Technology,Modeling,Statistic modeling
+Information Technology,Programming/Technical,SQL
+Information Technology,Analysis/Research,Data Analysis
