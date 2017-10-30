@@ -1,0 +1,42 @@
+---
+title: "Dat607 Hw9 WebAPI YuenChun Wong"
+author: "Yuen Chun Wong"
+date: "October 28, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Getting NYTimes National Top stories
+
+Modified from https://cran.r-project.org/web/packages/jsonlite/vignettes/json-apis.html
+
+
+```{r json-test}
+library(jsonlite)
+
+#search for articles
+article_key <- "api-key=472caa3965d74ec48511e3b169351c6a"
+url <- "http://api.nytimes.com/svc/topstories/v2/national.json?"
+req <- fromJSON(paste0(url, article_key))
+
+#convert data to dataframe
+df <- data.frame( 
+  title <- req$results$title,
+  published_date <- req$results$published_date,
+  short_url <- req$results$short_url,
+  abstract <- req$results$abstract
+  )
+
+names(df) = c("Title", "Date", "Reference URL", "Abstract") 
+
+library(knitr  )
+
+kable(df)
+
+
+```
+
+
