@@ -1,0 +1,74 @@
+---
+title: "Data 607 Design Scenario"
+author: "Yuen Chun Wong"
+date: "November 8, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##  Design Scenario
+
+www.ebay.com
+
+I pick eBay because it has a distinct feature - Auction  that is not in other e commerce websites.  In addition, unlike regular e commerce websites mostly sell new items, Customers and Buyers in eBay expect that items sold on eBay could be in used condition.
+
+<ol>
+<li>Who are your target users?
+<li>What are their key goals?
+<li>How can you help them accomplish those goals?
+</ol>
+ 
+                
+##  Who are your target users?
+
+  eBay has 2 target users:  Seller and buyer.  eBay is a market place, they need balance and fair designs for both side.
+ 
+ 
+##  What are their key goals?
+ 
+  For Sellers, their key goals are:
+  <ol>
+  <li>Sell more items
+  <li>Sell items at higher price (Auction)
+  <li>Sell items at bottom-line price (Buy It Now)
+  <li>Items to be seen by more users
+  </ol>
+    
+  For Buyers, their key goals are:
+  <ol>
+  <li>Buy quality items
+  <li>Buy from reliable sellers
+  <li>Buy items in lower price
+  <li>Buy items in reasonable price in hurry
+  <li>More variety in same category
+  </ol>
+      
+ 
+##  Ways to accomplish these goals.
+
+  eBay is using the following:
+    a.  Show items to buyers if any category or keywords matches
+    b.  Options for buyers to filter search result by Auction / Buy It Now
+    c.  Condition description is a mandatory for each listing items
+    d.  Show easy click or checkbox for sub-categories if applicable (size, materials, gender)
+    e.  Filter search results by price range
+    f.  Sort items by selling rating or user review
+    g.  Sort items by "Ending soon" for auction items going to finish
+    h.  Sort items by price and lowest/highest shipping cost instead of price-only since some sellers lower the price but raise the shipping cost.   Leave the options to buyers for transparency.
+    i.  Sort items by listing date.  Some frequent users prefer new items.
+    j.  Filter items by  shipping options since shipping cost matter for low cost item
+    k.  Filter items by item "ship from" location, it will gives idea to buyers about how much and how fast the shipping will be
+    l.  Some sellers provide free return, some buyers considers it is "reliable" or extra insurance in purchase
+    
+## Specific Recommendation
+  eBay can try to do the following to provide a better or more personalized user experience.
+  
+  1.  eBay provides the search results based on category, sellers review and user review.  But it seems that they don't promote any special events or sells.  eBay can implement the item listing by season, for example, buyers will look for red/white/green color products in Christmas season instead of yellow/brown/black as Halloween and Thanksgiving theme.
+  
+  2.  Although eBay users may not return and visit as often as Amazon's.  They can utilize the cookies to keep track users search perference andto narrow down the search result.  Buyers tend to do multiple search with the "same taste" before deciding which items they try to purchase
+  
+  3.  eBay shows similar items as recommendation at the bottom of the item detail page but it doesn't show related items. They can implement the recommenation that is based on related items.  E.g. Buyers search "tennis ball"" will see tennis racket in recommendation.
+
