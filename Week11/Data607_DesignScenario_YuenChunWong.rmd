@@ -63,6 +63,15 @@ I pick eBay because it has a distinct feature - Auction  that is not in other e 
     k.  Filter items by item "ship from" location, it will gives idea to buyers about how much and how fast the shipping will be
     l.  Some sellers provide free return, some buyers considers it is "reliable" or extra insurance in purchase
     
+##  Reverse Engineering.
+  eBay need to collect both basic categorized data and text description about the items seller are trying to list.  The basic data and text description would help the search engine what to show to buyers.
+  
+  Sellers need to choose both selling methods: 1) sell it now which requires a fixed price and 2) auction starting price.
+  
+  Sellers need to input the item shipping method and origin item location for eBay shipping.
+  
+  Fizzy logic to rank sellers rating and user rating for items.  Search engine will return listing order by the ranking
+  
 ## Specific Recommendation
   eBay can try to do the following to provide a better or more personalized user experience.
   
