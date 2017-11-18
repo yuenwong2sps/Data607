@@ -1,0 +1,315 @@
+---
+title: "Data607 Neo4J NoSQL"
+author: "Yuen Chun Wong"
+date: "November 17, 2017"
+output: 
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+      
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(knitr  )
+library(getPass)
+
+
+Neo4J_Username <- getPass::getPass("Please enter your Neo4J username")
+
+Neo4J_Password <- getPass::getPass("Please enter your Neo4J password")
+
+
+
+
+
+
+
+```
+
+### Neo4J Query Lab
+
+## Part I - Load nodes and add relationships
+
+```{r load-csv-file}
+
+library(RCurl)
+myfile_flight <- getURL('https://raw.githubusercontent.com/yuenwong2sps/Data607/master/Week12/neo4j-flight-lab-data.csv', 
+                 ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+
+myfile_airport <- getURL('https://raw.githubusercontent.com/yuenwong2sps/Data607/master/Week12/neo4j-airport-csv-raw.csv', 
+                        ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+
+mydat_airport <- read.csv(textConnection(myfile_airport), header=T)
+
+
+mydat_flight <- read.csv(textConnection(myfile_flight), header=T)
+
+
+```
+
+```{r connect-Neo4J}
+
+library(RNeo4j)
+
+
+
+
+graph = startGraph("http://localhost:7474/db/data/",
+                   username = Neo4J_Username,
+                   password = Neo4J_Password)
+
+clear(graph, input = FALSE)
+
+```
+
+1. Use Load CSV to create the airport nodes. Note that each airport node should have a label of "Airport" and aset of three attributes: code, city, and state.
+
+```{r load-airport}
+
+#unqiue airport data
+addConstraint(graph, "Airport","label")
+
+for(i in 1:length(mydat_airport$label))
+{
+  createNode(graph, "Airport", 
+             label = mydat_airport[i,]$label,
+             code=mydat_airport[i,]$label, 
+             city=mydat_airport[i,]$city,
+             state = mydat_airport[i,]$state
+             )
+  
+}
+
+```
+
+2. Use Load CSV to create the flight nodes. Each flight node should have a label of "Flight" and should have three attributes: number, capacity, and airline.
+
+
+```{r load-flights}
+
+for(i in 1:length(mydat_flight$flight))
+{
+  createNode(graph, "flights",
+             
+             flight = mydat_flight[i,]$flight,
+             airline = mydat_flight[i,]$airline,
+             capacity = mydat_flight[i,]$capacity
+            
+             )
+  
+}
+
+```
+
+
+
+
+3. Use Load CSV to create the arrival relationships. Each arrival relationship should have a label of "Arrive" and should have a single attribute: landing. (This attribute gives the scheduled landing time.)
+
+```{r add-relationship-arrival}
+query = "match (a:Airport {code:{airport_code}}), (b:flights {flight:{flight_num}}) create (b) -[r:Arrive {landing:{landing_time}}]->(a)"
+
+t = newTransaction(graph)
+for(i in 1:length(mydat_flight$flight))
+{
+  v_airport_code = mydat_flight[i,]$arrive
+  v_flight_num = mydat_flight[i,]$flight
+  v_landing_time = mydat_flight[i,]$landing
+  
+  appendCypher(t,
+               query,
+               airport_code = v_airport_code,
+               flight_num = v_flight_num,
+               landing_time = v_landing_time
+               )
+  
+}
+commit(t)
+
+
+
+```
+
+4. Use Load CSV to create the departure relationships. Each departure relationship should have a label of "Depart" and should have a single attribute: takeoff. (This attribute gives the scheduled takeoff time.)
+
+
+```{r add-relationship-departure}
+query = "match (a:Airport {code:{airport_code}}), (b:flights {flight:{flight_num}}) create (a) -[r:Depart {takeoff:{takeoff_time}}]->(b)"
+
+t = newTransaction(graph)
+for(i in 1:length(mydat_flight$flight))
+{
+  v_airport_code = mydat_flight[i,]$depart
+  v_flight_num = mydat_flight[i,]$flight
+  v_takeoff_time = mydat_flight[i,]$takeoff
+  
+  appendCypher(t,
+               query,
+               airport_code = v_airport_code,
+               flight_num = v_flight_num,
+               takeoff_time = v_takeoff_time
+               )
+  
+}
+commit(t)
+
+
+
+```
+
+5. Run the query match (n) return (n)
+
+```{r query-mach_n}
+#we need to specific the field to query data instead of just "n"
+query = "MATCH (d:Airport)-[t:Depart]->(f:flights)-[l:Arrive]->(a:Airport)
+RETURN d.label as FromAirport,t.takeoff as TakeOff, f.airline as AirLine, f.flight as FlightNum,l.landing as Landing, a.label as ToAirport"
+
+match_n_return_n = cypher(graph, query)
+
+kable(match_n_return_n)
+```
+
+
+
+## Part II: Data Analysis
+Now that we have some data loaded, let's answer some basic questions. Write Cypher queries to answer each of the following:
+
+6. Return all flights that run from Detroit to Atlanta.
+```{r all-flights-from-Detroit-to-Atlanta}
+query = "MATCH (d:Airport)-->(f:flights)-->(a:Airport) where d.code = 'DTW' and a.code = 'ATL'
+RETURN d.label as FromAirport, f.airline as AirLine, f.flight as FlightNum, a.label as ToAirport"
+
+flights_From_DTW_To_ATL = cypher(graph, query)
+
+kable(flights_From_DTW_To_ATL)
+```
+
+7. Return all flights that take off before 11 a.m.
+```{r all-flights-take-off-before-11am}
+query = "MATCH (d:Airport)-[t:Depart]->(f:flights)-->(a:Airport) where t.takeoff < 1100
+RETURN d.label as FromAirport,t.takeoff as TakeOff, f.airline as AirLine, f.flight as FlightNum, a.label as ToAirport"
+
+flights_Before11AM = cypher(graph, query)
+
+kable(flights_Before11AM)
+```
+
+8. Return all flights with a capacity greater than 150 passengers.
+```{r all-flights-capacity-larger-than-150}
+query = "MATCH (d:Airport)-[t:Depart]->(f:flights)-[l:Arrive]->(a:Airport) where f.capacity > 150
+RETURN d.label as FromAirport,t.takeoff as TakeOff, f.airline as AirLine, f.flight as FlightNum,l.landing as Landing, a.label as ToAirport, f.capacity as Capacity"
+
+flights_LargerThan150 = cypher(graph, query)
+
+kable(flights_LargerThan150)
+```
+
+9. Return all flights on Delta that arrive in Boston.
+
+```{r all-flights-Delta-arrival-BOS}
+query = "MATCH (d:Airport)-[t:Depart]->(f:flights)-[l:Arrive]->(a:Airport) where f.airline ='Delta' and a.code = 'BOS'
+RETURN d.label as FromAirport,t.takeoff as TakeOff, f.airline as AirLine, f.flight as FlightNum,l.landing as Landing, a.label as ToAirport"
+
+flights_Delta_BOS = cypher(graph, query)
+
+kable(flights_Delta_BOS)
+```
+
+
+## Part III: Data Modification
+
+Let's make a few simple changes to our data. Perform the following tasks:
+
+10. Suppose the Pittsburgh airport designation code has been changed from PIT to PGH. Write a query to update the airport's code.
+```{r update-airport-code}
+
+ Pittsburge_node = getNodes(graph, "Match (a:Airport) where a.code = 'PIT' return a ")
+
+ #updateProp expect a node, but getNodes return a list
+ #https://tutel.me/c/programming/questions/35876340/cannot+use+method+39updateprop39+in+rneo4j+package
+ Pittsburge_node = Pittsburge_node[[1]] #fix the issue
+```
+
+ Before update:
+```{r update-airport-code2} 
+ (Pittsburge_node)
+
+```
+
+  After update:
+```{r update-airport-code3}
+ Pittsburge_node = updateProp(Pittsburge_node, code = 'PGH', label= 'PGH')
+ 
+  
+ (Pittsburge_node)
+
+```
+
+
+11. Delta has decided to renumber some of its flights. Write a query to change flight 28 to flight 29.
+
+```{r update-delta-28-to-29}
+
+ delta_node = getNodes(graph, "match (f:flights) where f.airline='Delta' and f.flight=28  return f")
+
+delta_node = delta_node[[1]] #fix the issue
+
+```
+
+ Before udpate:
+```{r update-delta-28-to-29-part2}
+ (delta_node)
+ 
+```
+ 
+ After update:
+```{r update-delta-28-to-29-part3}
+
+ delta_node = updateProp(delta_node, flight = 29)
+ 
+
+ (delta_node)
+
+```
+
+
+
+
+12. Southwest has cancelled all flights between Detroit and Boston. Write a query that removes all such flights.
+
+```{r delete-Southwest-flights-Detroit-Boston}
+query = "match (fa:Airport)-[d:Depart]->(f:flights)-[l:Arrive]->(ta:Airport) where (fa.code = 'DTW' or fa.code = 'BOS') and (ta.code = 'BOS' or ta.code = 'DTW') and f.airline = 'Southwest' delete d, f, l"
+ 
+ cypher(graph, query)
+
+ 
+ 
+```
+
+Re-run records to verify the result
+```{r query-mach_n2}
+
+query = "MATCH (d:Airport)-[t:Depart]->(f:flights)-[l:Arrive]->(a:Airport)
+RETURN d.label as FromAirport,t.takeoff as TakeOff, f.airline as AirLine, f.flight as FlightNum,l.landing as Landing, a.label as ToAirport"
+
+match_n_return_n = cypher(graph, query)
+
+kable(match_n_return_n)
+```
+
+
+## Part IV: Clean Up
+
+Just run cypher to delete all records.
+```{r delete-all-records}
+query = "match (a) optional match (a)-[r]-() delete a,r"
+ 
+ cypher(graph, query)
+
+ 
+ 
+```
