@@ -291,6 +291,10 @@ query = "match (fa:Airport)-[d:Depart]->(f:flights)-[l:Arrive]->(ta:Airport) whe
 ```
 
 Re-run records to verify the result
+
+<img src="https://raw.githubusercontent.com/yuenwong2sps/Data607/master/Week12/graph.png" alt="Screenshoot summary">
+
+
 ```{r query-mach_n2}
 
 query = "MATCH (d:Airport)-[t:Depart]->(f:flights)-[l:Arrive]->(a:Airport)
@@ -308,8 +312,18 @@ Just run cypher to delete all records.
 ```{r delete-all-records}
 query = "match (a) optional match (a)-[r]-() delete a,r"
  
- cypher(graph, query)
+cypher(graph, query)
 
  
  
 ```
+
+
+
+## Relational DB V.S. NoSQL DB
+
+Both offer advantage and disadvantage.
+
+NoSQL database provides dynamaic data structure and schema-less design but it doesn't now have stored procedures.  Also, Relational database is a more matured technology that there are many expert developers/adminstorator.  NoSQL is relatively new technology. 
+
+
