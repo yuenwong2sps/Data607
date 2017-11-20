@@ -1,0 +1,50 @@
+---
+title: "Data 607 Final Project Proposal"
+author: "Yuen Chun Wong"
+date: "November 19, 2017"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Chunmei Zhu & John Wang
+November 18, 2017
+
+## Analysis of 311 Calls Data
+People call 311 in NYC when they need help but not emergency one.  We are interested to find out what kind of problem people are facing day to day and hoping to draw some interesting conclusion from some of the data set.  
+In our study, we will use statistic models, R/Python programming, and some machine learning related techniques to analyze the data in New York.   
+
+## Goals:
+1.	We propose to analyze the issue around New York City (including Manhattan, Queens, Brooklyn, and Bronx) by frequency of reported incidents in each area. 
+2.	We will look for what factors correlate the incidents type and residents (for example, race, age, and income), environments (business, living, nature, etc.).
+3.	Time and weather may be an important factors about incidents, we will look into it too. 
+## Methods:
+1.	We will collect the data through reliable websites and then clean and tidings data.   
+2.	Before analysis we will store the date in useful database like MongoDB, Neo4j or MySQL.  
+3.	We will use RStudio or Jpyther as main tool in analysis.  We may use Spark to connect to MongoDB 
+4.	Statistical methods will be applied in our analysis, such as cluster analysis, PCA. (could be more)
+5.	We may use R package such as iGraph or ggplot2 / Tableau Public (Free)/ PowerBI Desktop (Free) to present our results.  
+Data: (could be more)
+1.	The web API/ or cloud platform to perform basic analysis from 
+https://cloud.google.com/bigquery/public-data/
+https://aws.amazon.com/public-datasets/
+
+2.	Additional data will include as following: 
+Population: https://www.census.gov/topics/population.html
+Weather: https://www.climate.gov/maps-data/dataset/past-weather-zip-code-data-table
+Crime data: https://ucr.fbi.gov/crime-in-the-u.s/
+
+
+## Challenges:
+1.	We are new to AWS or Google Cloud to gather public data 
+2.	We never use Spark/Jpyther/Tableu/PowerBI as development and presentation tool, but we want try if possible.
+3.	We never do Clustering/ PCA but it seems they are very suitable in this analysis. 
+
+
